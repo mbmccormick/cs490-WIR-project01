@@ -58,17 +58,29 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Execute.aspx" />
+    <Content Include="Process.aspx" />
+    <Content Include="Retrieve.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Execute.aspx.cs">
-      <DependentUpon>Execute.aspx</DependentUpon>
+    <Compile Include="Process.aspx.cs">
+      <DependentUpon>Process.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Execute.aspx.designer.cs">
-      <DependentUpon>Execute.aspx</DependentUpon>
+    <Compile Include="Process.aspx.designer.cs">
+      <DependentUpon>Process.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Processing\Index.cs" />
+    <Compile Include="Retrieve.aspx.cs">
+      <DependentUpon>Retrieve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Retrieve.aspx.designer.cs">
+      <DependentUpon>Retrieve.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Processing\WeightHandler.cs" />
+    <Compile Include="Processing\StemmingHandler.cs" />
+    <Compile Include="Processing\StopwordsHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

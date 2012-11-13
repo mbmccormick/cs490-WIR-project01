@@ -12,12 +12,18 @@ using System.Text;
 
 namespace BillboardAnalyzer
 {
-    public partial class Execute : System.Web.UI.Page
+    public partial class Retrieve : System.Web.UI.Page
     {
         private const string apiKey = "ae4a5799bcf796a4d4d300dee30ecfcc";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // clean downloads directory
+            foreach (string path in Directory.GetFiles(Server.MapPath("~/Data"), "*.txt"))
+            {
+                File.Delete(path);
+            }
+
             // initialize web client
             WebClient client = new WebClient();
 

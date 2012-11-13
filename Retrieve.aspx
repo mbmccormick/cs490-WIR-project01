@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Execute.aspx.cs" Inherits="BillboardAnalyzer.Execute" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Retrieve.aspx.cs" Inherits="BillboardAnalyzer.Retrieve" %>
 
 <!DOCTYPE html>
 
