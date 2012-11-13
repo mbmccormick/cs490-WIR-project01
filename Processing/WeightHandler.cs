@@ -66,7 +66,12 @@ namespace BillboardAnalyzer.Processing
             int total = _index.GetDocumentCount();
             int contains = _index.GetNumberOfDocumentsContaining(termId);
 
-            return (documentTermFrequency / (documentTermFrequency + 0.5 + (1.5 * length / averageLength))) * Math.Log10(((double)total - ((double)contains + 0.5)) / ((double)contains + 0.5)) * ((8 + queryTermWeight) / (7 + queryTermWeight));
+            double weight = (documentTermFrequency / (documentTermFrequency + 0.5 + (1.5 * length / averageLength))) * Math.Log10(((double)total - ((double)contains + 0.5)) / ((double)contains + 0.5)) * ((8 + queryTermWeight) / (7 + queryTermWeight));
+
+            if (weight < 0.0)
+                return weight * -1;
+            else
+                return weight;
         }
 
         private static int Occurrences(string document, string term)

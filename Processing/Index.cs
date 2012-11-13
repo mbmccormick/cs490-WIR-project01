@@ -21,12 +21,23 @@ namespace BillboardAnalyzer.Processing
             foreach (string document in paths)
             {
                 StreamReader sr = new StreamReader(document);
-                
-                int key = Convert.ToInt32(Path.GetFileNameWithoutExtension(document));
+
+                int key = 0;
+                try
+                {
+                    key = Convert.ToInt32(Path.GetFileNameWithoutExtension(document));
+                }
+                catch (Exception ex)
+                {
+                    sr.Dispose();
+                    continue;
+                }
+
                 string value = sr.ReadToEnd();
 
                 documents.Add(key, value);
 
+                int documentTermCount = 0;
                 foreach (string term in value.Split(' '))
                 {
                     if (terms.ContainsValue(term) == false)
