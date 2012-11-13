@@ -56,8 +56,8 @@
                 <div class="span7">
                     <h2>
                         <asp:Label ID="lblTitle" runat="server"></asp:Label></h2>
-                    <h4>by
-                    <asp:Label ID="lblArtist" runat="server"></asp:Label></h4>
+                    <h3>by
+                    <asp:Label ID="lblArtist" runat="server"></asp:Label></h3>
                 </div>
             </div>
             <br />
