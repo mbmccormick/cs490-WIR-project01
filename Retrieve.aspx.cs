@@ -18,6 +18,12 @@ namespace BillboardAnalyzer
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Directory.Exists(Server.MapPath("~/Data")) == false)
+                Directory.CreateDirectory(Server.MapPath("~/Data"));
+
+            if (Directory.Exists(Server.MapPath("~/Data/Output")) == false)
+                Directory.CreateDirectory(Server.MapPath("~/Data/Output"));
+
             Response.Write("Downloading Billboard Top 100 chart.<br />\n");
             
             // clean data directory
