@@ -19,7 +19,7 @@ namespace BillboardAnalyzer
 
             Response.Write("Calculating weight.<br />\n");
 
-            string results = WeightHandler.Process(index, new string[] { "fuck", "shit", "ass", "bitch", "damn" });
+            string results = WeightHandler.Process(index, new string[] { "fuck", "bitch", "shit", "ass", "damn" });
             File.WriteAllText(Server.MapPath("~/Data/Output") + "\\index.txt", results);
 
             Response.Write("Done.<br />\n");
