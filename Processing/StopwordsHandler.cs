@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace BillboardAnalyzer.Processing
@@ -472,7 +473,12 @@ namespace BillboardAnalyzer.Processing
                 data.Replace(" " + word + " ", " ");
             }
 
-            return data.ToString();
+            string result = data.ToString();
+
+            Regex search = new Regex("[^a-zA-Z0-9 -]");
+            result = search.Replace(result, "");
+
+            return result.ToString().ToLower();
         }
     }
 }

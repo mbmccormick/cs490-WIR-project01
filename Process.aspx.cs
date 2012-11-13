@@ -15,6 +15,12 @@ namespace BillboardAnalyzer
         {
             Response.Write("Running text pre-processing.<br />\n");
 
+            // clean data directory
+            foreach (string path in Directory.GetFiles(Server.MapPath("~/Data/Output"), "*.txt"))
+            {
+                File.Delete(path);
+            }
+
             // loop through all of the lyrics
             foreach (string path in Directory.GetFiles(Server.MapPath("~/Data"), "*.txt"))
             {
@@ -37,9 +43,8 @@ namespace BillboardAnalyzer
                 // close stream reader
                 sr.Dispose();
 
-                // replace file on disk
-                File.Delete(path);
-                File.WriteAllText(path, contents);
+                // write file to disk
+                File.WriteAllText(path.Replace("\\Data", "\\Data\\Output"), contents);
             }
 
             Response.Write("Done.<br />\n");

@@ -18,7 +18,9 @@ namespace BillboardAnalyzer
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // clean downloads directory
+            Response.Write("Downloading Billboard Top 100 chart.<br />\n");
+            
+            // clean data directory
             foreach (string path in Directory.GetFiles(Server.MapPath("~/Data"), "*.txt"))
             {
                 File.Delete(path);
@@ -28,7 +30,6 @@ namespace BillboardAnalyzer
             WebClient client = new WebClient();
 
             // download billboard top 100 songs
-            Response.Write("Downloading Billboard Top 100 chart.<br />\n");
             string response1 = client.DownloadString("http://api.musixmatch.com/ws/1.1/chart.tracks.get?page=1&page_size=100&country=us&f_has_lyrics=1&apikey=" + apiKey);
             
             // parse songs from chart response

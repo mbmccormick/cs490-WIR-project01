@@ -8,21 +8,33 @@ namespace BillboardAnalyzer.Processing
 {
     public class Index
     {
-        Dictionary<int, string> documents;
-        Dictionary<int, string> terms;
+        public Dictionary<int, string> documents;
+        public Dictionary<int, string> terms;
         
         public Index(string[] paths)
         {
             documents = new Dictionary<int, string>();
+            terms = new Dictionary<int, string>();
 
-            foreach (string path in paths)
+            int termCount = 0;
+
+            foreach (string document in paths)
             {
-                StreamReader sr = new StreamReader(path);
+                StreamReader sr = new StreamReader(document);
                 
-                int key = Convert.ToInt32(Path.GetFileNameWithoutExtension(path));
+                int key = Convert.ToInt32(Path.GetFileNameWithoutExtension(document));
                 string value = sr.ReadToEnd();
 
                 documents.Add(key, value);
+
+                foreach (string term in value.Split(' '))
+                {
+                    if (terms.ContainsValue(term) == false)
+                    {
+                        terms.Add(termCount, term);
+                        termCount++;
+                    }
+                }
 
                 sr.Dispose();
             }
@@ -47,11 +59,13 @@ namespace BillboardAnalyzer.Processing
             return documents.Count;
         }
 
-        public int GetNumberOfDocumentsContaining(string query)
+        public int GetNumberOfDocumentsContaining(int termId)
         {
+            string term = terms[termId];
+
             int count = 0;
             foreach (var document in documents)
-                if (document.Value.Contains(query) == true)
+                if (document.Value.Contains(term) == true)
                     count++;
 
             return count;
