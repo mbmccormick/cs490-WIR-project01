@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
-    <title>Tunerank</title>
+    <title>TuneRank</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--[if lt IE 9]>
@@ -41,7 +41,7 @@
         <div class="container">
             <div class="jumbotron">
                 <a href="/">
-                    <h1>Tunerank</h1>
+                    <h1>TuneRank</h1>
                 </a>
                 <br />
                 <p class="lead">Lyric analysis of the Billboard Top 100 Chart.</p>

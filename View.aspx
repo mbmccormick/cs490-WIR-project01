@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <meta charset="utf-8" />
-    <title>Tunerank</title>
+    <title>TuneRank</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--[if lt IE 9]>
@@ -34,6 +34,10 @@
                 font-size: 21px;
                 padding: 14px 24px;
             }
+
+        .highlight {
+            background-color: yellow;
+        }
     </style>
 </head>
 <body>
@@ -41,7 +45,7 @@
         <div class="container">
             <div class="jumbotron">
                 <a href="/">
-                    <h1>Tunerank</h1>
+                    <h1>TuneRank</h1>
                 </a>
                 <br />
                 <p class="lead">Lyric analysis of the Billboard Top 100 Chart.</p>
@@ -64,7 +68,8 @@
 
             <div class="row">
                 <p style="margin-left: 30px;">
-                    <asp:Label ID="lblLyrics" runat="server"></asp:Label></p>
+                    <asp:Label ID="lblLyrics" runat="server"></asp:Label>
+                </p>
             </div>
             <br />
 
@@ -79,6 +84,26 @@
 
         <script src="/Content/js/jquery.js"></script>
         <script src="/Content/js/bootstrap.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {                
+                <% string[] category = null; %>
+                <% if (Request.QueryString["category"] == "1") { %>                
+                <% category = BillboardAnalyzer.Index.LoveCategory; %>
+                <% } else if (Request.QueryString["category"] == "2") { %>
+                <% category = BillboardAnalyzer.Index.HappyCategory; %>
+                <% } else if (Request.QueryString["category"] == "3") { %>
+                <% category = BillboardAnalyzer.Index.SadCategory; %>
+                <% } else if (Request.QueryString["category"] == "4") { %>
+                <% category = BillboardAnalyzer.Index.ProfanityCategory; %>
+                <% } %>
+                <% if (category != null) { %>
+                <% foreach (string term in category) { %>
+                $("p").highlight("<%= term %>");
+                <% } %>
+                <% } %>
+            });
+        </script>
     </form>
 </body>
 </html>
