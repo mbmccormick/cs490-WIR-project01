@@ -13,7 +13,7 @@ namespace BillboardAnalyzer
     {
         public static string[] LoveCategory = new string[] { "love", "heart" };
         public static string[] HappyCategory = new string[] { "smile", "shine", "bright", "sunlight", "joy", "happy" };
-        public static string[] SadCategory = new string[] { "dark", "cloud", "cry", "tear" };
+        public static string[] SadCategory = new string[] { "sad", "dark", "cry", "tear", "storm", "scream" };
         public static string[] ProfanityCategory = new string[] { "fuck", "bitch", "slut", "ass", "damn" };
 
         protected void Page_Load(object sender, EventArgs e)
