@@ -37,7 +37,6 @@ namespace BillboardAnalyzer.Processing
 
                 documents.Add(key, value);
 
-                int documentTermCount = 0;
                 foreach (string term in value.Split(' '))
                 {
                     if (terms.ContainsValue(term) == false)

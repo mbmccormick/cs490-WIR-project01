@@ -44,7 +44,7 @@ namespace BillboardAnalyzer
 
             Response.Write("Calculating weight for repetitive songs.<br />\n");
 
-            string results5 = WeightHandler.Process(index, new string[] { "love" });
+            string results5 = WeightHandler.ProcessUniqueTerms(index);
             File.WriteAllText(Server.MapPath("~/Data/Output") + "\\repetitive.txt", results5);
 
             Response.Write("Done.<br />\n");

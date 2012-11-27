@@ -59,6 +59,31 @@ namespace BillboardAnalyzer.Processing
             return sb.ToString();
         }
 
+        public static string ProcessUniqueTerms(Index index)
+        {
+            _index = index;
+
+            // initialize the rank dictionary
+            Dictionary<int, double> rank = new Dictionary<int, double>();
+            foreach (KeyValuePair<int, string> document in _index.documents)
+                rank.Add(document.Key, 0.0);
+
+            // loop though all of the documents in the index
+            foreach (KeyValuePair<int, string> document in _index.documents)
+            {
+                rank[document.Key] = ((double)UniqueTermsCount(document.Value) / _index.GetDocumentLength(document.Key));
+            }
+
+            // calculate the results
+            StringBuilder sb = new StringBuilder();
+            foreach (KeyValuePair<int, double> result in rank.OrderBy(z => z.Value))
+            {
+                sb.AppendLine(result.Key.ToString() + " " + result.Value.ToString());
+            }
+
+            return sb.ToString();
+        }
+
         private static double ComputeWeight(int documentId, int termId, int documentTermFrequency, double queryTermWeight)
         {
             int length = _index.GetDocumentLength(documentId);
@@ -86,6 +111,17 @@ namespace BillboardAnalyzer.Processing
             }
 
             return count;
+        }
+
+        private static int UniqueTermsCount(string document)
+        {
+            List<string> uniqueTerms = new List<string>();
+
+            foreach (string term in document.Split(' '))
+                if (uniqueTerms.Contains(term) == false)
+                    uniqueTerms.Add(term);
+
+            return uniqueTerms.Count;
         }
     }
 }
