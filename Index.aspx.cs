@@ -11,7 +11,7 @@ namespace BillboardAnalyzer
 {
     public partial class Index : System.Web.UI.Page
     {
-        public static string[] LoveCategory = new string[] { "love", "love", "sweet", "heart" };
+        public static string[] LoveCategory = new string[] { "love", "sweet", "heart" };
         public static string[] HappyCategory = new string[] { "smile", "shine", "bright", "sunlight", "joy", "happy" };
         public static string[] SadCategory = new string[] { "sad", "dark", "cry", "tear", "storm", "scream", "torn", "pain" };
         public static string[] ProfanityCategory = new string[] { "fuck", "bitch", "slut", "ass", "damn" };
