@@ -28,7 +28,7 @@ namespace TuneRank.Processing
             foreach (string term in query.Reverse())
             {
                 queryWeight.Add(term, weight);
-                weight++;
+                // weight++;
             }
 
             // loop through all of the terms in the index
