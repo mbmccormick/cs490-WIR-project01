@@ -53,7 +53,7 @@ namespace TuneRank
 
                 string albumCover = track.album_coverart_350x350 == "" ? track.album_coverart_100x100 : track.album_coverart_350x350;
 
-                output += "<div class='span2'><a href='View.aspx?id=" + track.track_id + "&category=" + category + "'><img class='img-polaroid' width='150' height='150' src='" + albumCover + "'></a><h4><a href='View.aspx?id=" + track.track_id + "&category=" + category + "'>" + track.track_name + "</a></h4><p>by " + track.artist_name + "</p></div>\n";
+                output += "<div class='span2'><a href='view.aspx?id=" + track.track_id + "&category=" + category + "'><img class='img-polaroid' width='150' height='150' src='" + albumCover + "'></a><h4><a href='View.aspx?id=" + track.track_id + "&category=" + category + "'>" + track.track_name + "</a></h4><p>by " + track.artist_name + "</p></div>\n";
             }
 
             return output;
