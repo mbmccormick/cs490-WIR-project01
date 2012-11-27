@@ -53,11 +53,14 @@ namespace BillboardAnalyzer
                 Response.Write("Downloading lyrics for #" + i + " " + song.track.track_name + " by " + song.track.artist_name + ".<br />\n");
                 string response2 = client.DownloadString("http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=" + song.track.track_id + "&apikey=" + apiKey);
 
-                // parse lyrics for track response
-                var lyrics = Json.Decode(response2).message.body.lyrics.lyrics_body;
+                if (song.track.has_lyrics == 1)
+                {
+                    // parse lyrics for track response
+                    var lyrics = Json.Decode(response2).message.body.lyrics.lyrics_body;
 
-                // save lyrics to disk
-                File.WriteAllText(Server.MapPath("~/Data") + "\\" + song.track.track_id + ".txt", lyrics);
+                    // save lyrics to disk
+                    File.WriteAllText(Server.MapPath("~/Data") + "\\" + song.track.track_id + ".txt", lyrics);
+                }
 
                 i++;
             }
