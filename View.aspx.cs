@@ -19,17 +19,23 @@ namespace TuneRank
             int trackId = Convert.ToInt32(Request.QueryString["id"]);
 
             WebClient client = new WebClient();
-            string response = client.DownloadString("http://api.musixmatch.com/ws/1.1/track.get?track_id=" + trackId + "&apikey=" + apiKey);
+            string response1 = client.DownloadString("http://api.musixmatch.com/ws/1.1/track.get?track_id=" + trackId + "&apikey=" + apiKey);
 
-            var track = Json.Decode(response).message.body.track;
+            var track = Json.Decode(response1).message.body.track;
 
             this.lblTitle.Text = track.track_name;
             this.lblArtist.Text = track.artist_name;
 
-            this.imgAlbum.ImageUrl = track.album_coverart_350x350 == "" ? track.album_coverart_100x100 : track.album_coverart_350x350;
+            // this.imgAlbum.ImageUrl = track.album_coverart_350x350 == "" ? track.album_coverart_100x100 : track.album_coverart_350x350;
 
             StreamReader sr = new StreamReader(Server.MapPath("~/Data/" + track.track_id + ".txt"));
             this.lblLyrics.Text = sr.ReadToEnd().Replace("\n", "<br />\n");
+
+            string response2 = client.DownloadString("http://ws.spotify.com/search/1/track.json?q=" + track.track_name);
+
+            var spotifyUri = Json.Decode(response2).tracks[0].href;
+
+            this.litPlayButton.Text = "<iframe src='https://embed.spotify.com/?uri=" + spotifyUri + "' width='400' height='480' frameborder='0' allowtransparency='true'></iframe>";
         }
     }
 }

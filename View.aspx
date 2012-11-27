@@ -54,22 +54,20 @@
             <hr />
 
             <div class="row">
-                <div class="span2">
-                    <asp:Image ID="imgAlbum" CssClass="img-polaroid" runat="server" Width="100" />
-                </div>
-                <div class="span7">
-                    <h2>
+                <div class="span6">
+                    <h2 style="margin-left: 0px !important;">
                         <asp:Label ID="lblTitle" runat="server"></asp:Label></h2>
-                    <h3>by
+                    <h3 style="margin-left: 0px !important;">by
                     <asp:Label ID="lblArtist" runat="server"></asp:Label></h3>
+                    <br />
+                    <p>
+                        <asp:Label ID="lblLyrics" runat="server"></asp:Label>
+                    </p>
                 </div>
-            </div>
-            <br />
-
-            <div class="row">
-                <p style="margin-left: 30px;">
-                    <asp:Label ID="lblLyrics" runat="server"></asp:Label>
-                </p>
+                <div class="span6" style="text-align: right;">
+                    <br />
+                    <asp:Literal ID="litPlayButton" runat="server"></asp:Literal>
+                </div>
             </div>
             <br />
 
@@ -86,19 +84,28 @@
         <script src="/Content/js/bootstrap.js"></script>
 
         <script type="text/javascript">
-            $(document).ready(function () {                
+            $(document).ready(function () {
                 <% string[] category = null; %>
-                <% if (Request.QueryString["category"] == "1") { %>                
+                <% if (Request.QueryString["category"] == "1")
+                   { %>                
                 <% category = TuneRank.Index.LoveCategory; %>
-                <% } else if (Request.QueryString["category"] == "2") { %>
+                <% }
+                   else if (Request.QueryString["category"] == "2")
+                   { %>
                 <% category = TuneRank.Index.HappyCategory; %>
-                <% } else if (Request.QueryString["category"] == "3") { %>
+                <% }
+                   else if (Request.QueryString["category"] == "3")
+                   { %>
                 <% category = TuneRank.Index.SadCategory; %>
-                <% } else if (Request.QueryString["category"] == "4") { %>
+                <% }
+                   else if (Request.QueryString["category"] == "4")
+                   { %>
                 <% category = TuneRank.Index.ProfanityCategory; %>
                 <% } %>
-                <% if (category != null) { %>
-                <% foreach (string term in category) { %>
+                <% if (category != null)
+                   { %>
+                <% foreach (string term in category)
+                   { %>
                 $("p").highlight("<%= term %>");
                 <% } %>
                 <% } %>

@@ -31,15 +31,6 @@ namespace TuneRank {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// imgAlbum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgAlbum;
-        
-        /// <summary>
         /// lblTitle control.
         /// </summary>
         /// <remarks>
@@ -65,5 +56,14 @@ namespace TuneRank {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLyrics;
+        
+        /// <summary>
+        /// litPlayButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPlayButton;
     }
 }
