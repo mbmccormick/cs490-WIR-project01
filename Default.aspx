@@ -21,7 +21,7 @@
         }
 
         .jumbotron {
-            margin: 60px 0;
+            margin: 40px 0 60px 0;
             text-align: left;
         }
 
