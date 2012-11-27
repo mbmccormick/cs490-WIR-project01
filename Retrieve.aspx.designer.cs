@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BillboardAnalyzer {
+namespace TuneRank {
     
     
     public partial class Retrieve {

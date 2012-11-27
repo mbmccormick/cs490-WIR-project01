@@ -1,4 +1,4 @@
-﻿using BillboardAnalyzer.Processing;
+﻿using TuneRank.Processing;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace BillboardAnalyzer
+namespace TuneRank
 {
     public partial class Process : System.Web.UI.Page
     {

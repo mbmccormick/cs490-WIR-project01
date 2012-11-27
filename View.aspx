@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="BillboardAnalyzer.View" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="TuneRank.View" %>
 
 <!DOCTYPE html>
 
@@ -89,13 +89,13 @@
             $(document).ready(function () {                
                 <% string[] category = null; %>
                 <% if (Request.QueryString["category"] == "1") { %>                
-                <% category = BillboardAnalyzer.Index.LoveCategory; %>
+                <% category = TuneRank.Index.LoveCategory; %>
                 <% } else if (Request.QueryString["category"] == "2") { %>
-                <% category = BillboardAnalyzer.Index.HappyCategory; %>
+                <% category = TuneRank.Index.HappyCategory; %>
                 <% } else if (Request.QueryString["category"] == "3") { %>
-                <% category = BillboardAnalyzer.Index.SadCategory; %>
+                <% category = TuneRank.Index.SadCategory; %>
                 <% } else if (Request.QueryString["category"] == "4") { %>
-                <% category = BillboardAnalyzer.Index.ProfanityCategory; %>
+                <% category = TuneRank.Index.ProfanityCategory; %>
                 <% } %>
                 <% if (category != null) { %>
                 <% foreach (string term in category) { %>

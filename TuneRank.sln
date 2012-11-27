@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillboardAnalyzer", "BillboardAnalyzer.csproj", "{825A2AD1-CC85-402C-9102-4DE550E3DAF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuneRank", "TuneRank.csproj", "{825A2AD1-CC85-402C-9102-4DE550E3DAF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

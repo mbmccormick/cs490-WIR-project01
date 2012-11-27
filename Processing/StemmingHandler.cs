@@ -5,7 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Helpers;
 
-namespace BillboardAnalyzer.Processing
+namespace TuneRank.Processing
 {
     public class StemmingHandler
     {

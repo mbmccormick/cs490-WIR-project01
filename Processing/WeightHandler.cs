@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace BillboardAnalyzer.Processing
+namespace TuneRank.Processing
 {
     public class WeightHandler
     {

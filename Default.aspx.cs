@@ -8,7 +8,7 @@ using System.Web.Helpers;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace BillboardAnalyzer
+namespace TuneRank
 {
     public partial class Default : System.Web.UI.Page
     {

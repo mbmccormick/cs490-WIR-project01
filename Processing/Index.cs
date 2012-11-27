@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace BillboardAnalyzer.Processing
+namespace TuneRank.Processing
 {
     public class Index
     {

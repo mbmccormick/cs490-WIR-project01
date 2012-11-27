@@ -10,7 +10,7 @@ using System.Data;
 using System.IO;
 using System.Text;
 
-namespace BillboardAnalyzer
+namespace TuneRank
 {
     public partial class Retrieve : System.Web.UI.Page
     {
