@@ -38,11 +38,14 @@ namespace TuneRank
             // download the Spotify embed component
             string response2 = client.DownloadString("http://ws.spotify.com/search/1/track.json?q=" + track.track_name);
 
-            // parse the Spotify URI for this song
-            var spotifyUri = Json.Decode(response2).tracks[0].href;
+            if (Json.Decode(response2).tracks[0] != null)
+            {
+                // parse the Spotify URI for this song
+                var spotifyUri = Json.Decode(response2).tracks[0].href;
 
-            // output the Spotify embed component
-            this.litPlayButton.Text = "<iframe src='https://embed.spotify.com/?uri=" + spotifyUri + "' width='400' height='480' frameborder='0' allowtransparency='true'></iframe>";
+                // output the Spotify embed component
+                this.litPlayButton.Text = "<iframe src='https://embed.spotify.com/?uri=" + spotifyUri + "' width='400' height='480' frameborder='0' allowtransparency='true'></iframe>";
+            }
         }
     }
 }
