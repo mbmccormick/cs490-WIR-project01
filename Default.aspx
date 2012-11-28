@@ -44,7 +44,7 @@
                     <h1>TuneRank</h1>
                 </a>
                 <br />
-                <p class="lead">Lyric analysis of the Billboard Top 100 Chart.</p>
+                <p class="lead">Lyric analysis of the Billboard Top 100 chart</p>
             </div>
 
             <hr />
