@@ -11,6 +11,7 @@ namespace TuneRank
 {
     public partial class Index : System.Web.UI.Page
     {
+        // define category queries
         public static string[] LoveCategory = new string[] { "love", "sweet", "heart" };
         public static string[] HappyCategory = new string[] { "happy", "joy", "sunlight", "smile", "shine", "bright" };
         public static string[] SadCategory = new string[] { "sad", "dark", "cry", "tear", "storm", "scream", "torn", "pain" };

@@ -12,10 +12,12 @@ namespace TuneRank
 {
     public partial class Default : System.Web.UI.Page
     {
+        // define MusixMatch API key
         private const string apiKey = "ae4a5799bcf796a4d4d300dee30ecfcc";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // render the results for each category
             this.litLoveSongs.Text = LoadSongs(Server.MapPath("~/Data/Output/love.txt"), 1);
             this.litHappy.Text = LoadSongs(Server.MapPath("~/Data/Output/happy.txt"), 2);
             this.litSad.Text = LoadSongs(Server.MapPath("~/Data/Output/sad.txt"), 3);
@@ -25,9 +27,11 @@ namespace TuneRank
 
         private string LoadSongs(string path, int category)
         {
+            // read the index file from disk
             StreamReader sr = new StreamReader(path);
             string lyrics = sr.ReadToEnd();
 
+            // parse the index file for songs and rank
             Dictionary<int, double> songs = new Dictionary<int, double>();
             foreach (string line in lyrics.Split('\n'))
             {
@@ -44,18 +48,22 @@ namespace TuneRank
             // initialize web client
             WebClient client = new WebClient();
 
+            // build the results output
             string output = "";
             foreach (KeyValuePair<int, double> song in songs.Take(5))
             {
+                // download song information and album art from MusixMatch
                 string response = client.DownloadString("http://api.musixmatch.com/ws/1.1/track.get?track_id=" + song.Key + "&apikey=" + apiKey);
 
                 var track = Json.Decode(response).message.body.track;
 
                 string albumCover = track.album_coverart_350x350 == "" ? track.album_coverart_100x100 : track.album_coverart_350x350;
-
+                
+                // append the raw HTML content
                 output += "<div class='span2'><a href='view.aspx?id=" + track.track_id + "&category=" + category + "'><img class='img-polaroid' width='150' height='150' style='width: 150px; height: 150px;' src='" + albumCover + "'></a><h4><a href='view.aspx?id=" + track.track_id + "&category=" + category + "'>" + track.track_name + "</a></h4><p>by " + track.artist_name + "</p></div>\n";
             }
 
+            // return the rendered results
             return output;
         }
     }

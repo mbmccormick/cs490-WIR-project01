@@ -12,6 +12,7 @@ namespace TuneRank.Processing
     {
         #region Stopwords List Declaration
 
+        // define stopwords list
         private static string[] stopwordsList = new string[] { "a",                                
                                                                "about", 
                                                                "above", 
@@ -467,17 +468,21 @@ namespace TuneRank.Processing
 
         public static string Process(string input)
         {
+            // recreate document with stopwords removed
             StringBuilder data = new StringBuilder(input);
             foreach (string word in stopwordsList)
             {
                 data.Replace(" " + word + " ", " ");
             }
 
+            // copy clean document to memory
             string result = data.ToString();
 
+            // remove non alphanumeric characters from document
             Regex search = new Regex("[^a-zA-Z0-9 -]");
             result = search.Replace(result, "");
 
+            // return new document
             return result.ToString().ToLower();
         }
     }

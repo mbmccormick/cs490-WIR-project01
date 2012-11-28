@@ -14,13 +14,16 @@ namespace TuneRank
 {
     public partial class Retrieve : System.Web.UI.Page
     {
+        // define MusixMatch API key
         private const string apiKey = "ae4a5799bcf796a4d4d300dee30ecfcc";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // delete previous Data directory and recreate
             if (Directory.Exists(Server.MapPath("~/Data")) == false)
                 Directory.CreateDirectory(Server.MapPath("~/Data"));
 
+            // delete previous Data directory and recreate
             if (Directory.Exists(Server.MapPath("~/Data/Output")) == false)
                 Directory.CreateDirectory(Server.MapPath("~/Data/Output"));
 
