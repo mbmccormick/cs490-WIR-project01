@@ -38,7 +38,7 @@ namespace TuneRank
             // download the Spotify embed component
             string response2 = client.DownloadString("http://ws.spotify.com/search/1/track.json?q=" + track.track_name);
 
-            if (Json.Decode(response2).tracks[0] != null)
+            if (Json.Decode(response2).tracks.Count > 0)
             {
                 // parse the Spotify URI for this song
                 var spotifyUri = Json.Decode(response2).tracks[0].href;
