@@ -13,7 +13,7 @@ namespace TuneRank
     public partial class Default : System.Web.UI.Page
     {
         // define MusixMatch API key
-        private const string apiKey = "ae4a5799bcf796a4d4d300dee30ecfcc";
+        private const string apiKey = "cbd3340887455ec7c422dd1564e02ec6";
 
         protected void Page_Load(object sender, EventArgs e)
         {
